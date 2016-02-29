@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define PROMPT "你想终止程序吗?"
+#define PROMPT "Do you really want to break off the program ?"
 char *prompt = PROMPT;
 void ctrl_c_op(int signo)
 {
@@ -15,7 +15,7 @@ void ctrl_c_op(int signo)
 int main()
 {
     struct sigaction act;
-    act.sa_handler = ctrl_c_op;
+    act.sa_handler = &ctrl_c_op;
     sigemptyset(&act.sa_mask);
     act.sa_flags = 0;
 
